@@ -5,6 +5,15 @@
  */
 package CBS;
 
+import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import java.time.LocalDate;
+import java.util.Date;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.table.TableModel;
 /**
  *
  * @author Geethan
@@ -16,6 +25,9 @@ public class Customer_Home extends javax.swing.JFrame {
      */
     public Customer_Home() {
         initComponents();
+        fillComboBox();
+        fillComboBox2();
+        showUserTable1();
     }
 
     GUI_Methods gui = new GUI_Methods();
@@ -42,6 +54,13 @@ public class Customer_Home extends javax.swing.JFrame {
         lbl_settings_btn = new javax.swing.JLabel();
         pnl_center = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        pnl_dashboard = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
         pnl_addroutes = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -56,13 +75,6 @@ public class Customer_Home extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        pnl_dashboard = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -228,9 +240,9 @@ public class Customer_Home extends javax.swing.JFrame {
             btn_LogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btn_LogoutLayout.createSequentialGroup()
                 .addComponent(leftpnl_settings_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addComponent(lbl_settings_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(206, 206, 206))
+                .addGap(197, 197, 197))
         );
         btn_LogoutLayout.setVerticalGroup(
             btn_LogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,7 +250,7 @@ public class Customer_Home extends javax.swing.JFrame {
             .addComponent(lbl_settings_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
-        pnl_side.add(btn_Logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 740, -1, -1));
+        pnl_side.add(btn_Logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, -1, -1));
 
         getContentPane().add(pnl_side, java.awt.BorderLayout.WEST);
 
@@ -247,6 +259,83 @@ public class Customer_Home extends javax.swing.JFrame {
         pnl_center.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTabbedPane1.setBackground(new java.awt.Color(34, 40, 44));
+
+        pnl_dashboard.setBackground(new java.awt.Color(34, 40, 44));
+        pnl_dashboard.setForeground(new java.awt.Color(204, 204, 204));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 102, 255));
+        jLabel1.setText("Dashboard");
+
+        jPanel5.setPreferredSize(new java.awt.Dimension(925, 5));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 925, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "BookingID", "userID", "routeID", "dayID", "seatNo", "deptDate", "bookingDate"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 270, Short.MAX_VALUE)
+        );
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel6.setText("Your Trips");
+
+        javax.swing.GroupLayout pnl_dashboardLayout = new javax.swing.GroupLayout(pnl_dashboard);
+        pnl_dashboard.setLayout(pnl_dashboardLayout);
+        pnl_dashboardLayout.setHorizontalGroup(
+            pnl_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_dashboardLayout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addGroup(pnl_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane2)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(76, Short.MAX_VALUE))
+        );
+        pnl_dashboardLayout.setVerticalGroup(
+            pnl_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_dashboardLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jLabel6)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("tab1", pnl_dashboard);
 
         pnl_addroutes.setBackground(new java.awt.Color(34, 40, 44));
         pnl_addroutes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -305,10 +394,16 @@ public class Customer_Home extends javax.swing.JFrame {
             .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        pnl_addroutes.add(btn_filter, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 110, 110, 30));
+        pnl_addroutes.add(btn_filter, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 110, 30));
 
         jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         pnl_addroutes.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 110, 170, -1));
+
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton1MousePressed(evt);
+            }
+        });
         pnl_addroutes.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 110, 30, 30));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
@@ -316,7 +411,6 @@ public class Customer_Home extends javax.swing.JFrame {
         pnl_addroutes.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 120, -1));
 
         jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         pnl_addroutes.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 120, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
@@ -324,7 +418,6 @@ public class Customer_Home extends javax.swing.JFrame {
         pnl_addroutes.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 110, 90, -1));
 
         jComboBox2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         pnl_addroutes.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 120, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
@@ -333,100 +426,22 @@ public class Customer_Home extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "routeID", "deptCT", "destCT", "destTime", "price", "capacity"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         pnl_addroutes.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 920, 550));
 
         jTabbedPane1.addTab("tab2", pnl_addroutes);
-
-        pnl_dashboard.setBackground(new java.awt.Color(34, 40, 44));
-        pnl_dashboard.setForeground(new java.awt.Color(204, 204, 204));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 102, 255));
-        jLabel1.setText("Dashboard");
-
-        jPanel5.setPreferredSize(new java.awt.Dimension(925, 5));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 925, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 5, Short.MAX_VALUE)
-        );
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable2);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 270, Short.MAX_VALUE)
-        );
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel6.setText("Your Trips");
-
-        javax.swing.GroupLayout pnl_dashboardLayout = new javax.swing.GroupLayout(pnl_dashboard);
-        pnl_dashboard.setLayout(pnl_dashboardLayout);
-        pnl_dashboardLayout.setHorizontalGroup(
-            pnl_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_dashboardLayout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addGroup(pnl_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnl_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane2)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(76, Short.MAX_VALUE))
-        );
-        pnl_dashboardLayout.setVerticalGroup(
-            pnl_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl_dashboardLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jLabel6)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("tab1", pnl_dashboard);
 
         pnl_center.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 1060, 900));
 
@@ -495,14 +510,18 @@ public class Customer_Home extends javax.swing.JFrame {
 
     private void btn_LogoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_LogoutMousePressed
         // TODO add your handling code here:
+        
         gui.setcolor_sidebar_button(btn_Logout,leftpnl_settings_btn);
         gui.resetcolor_sidebar_button(btn_Dashboard,leftpnl_dashboard_btn);
         gui.resetcolor_sidebar_button(btn_tripbooking,leftpnl_addroutes_btn);
-
+        
         set = true;
         adr=false;
         dashboard = false;
-        jTabbedPane1.setSelectedIndex(4);
+        //jTabbedPane1.setSelectedIndex(4);
+        logout();
+        
+       
     }//GEN-LAST:event_btn_LogoutMousePressed
 
     private void btn_filterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_filterMouseEntered
@@ -517,12 +536,223 @@ public class Customer_Home extends javax.swing.JFrame {
 
     private void btn_filterMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_filterMousePressed
         // TODO add your handling code here:
-
+        userData();
+        showUserTable();
     }//GEN-LAST:event_btn_filterMousePressed
+
+    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+        // TODO add your handling code here:
+         DatePicker dp = new DatePicker(this);
+         jTextField1.setText(dp.setPickedDate());
+    }//GEN-LAST:event_jButton1MousePressed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+         int i=jTable1.getSelectedRow();
+         JFrame f;
+         TableModel model=jTable1.getModel();
+         String userid ="1";
+         String routeid = (String) model.getValueAt(i,0).toString();
+         String dayid = "1";
+         String seatno = "3";
+         String deptdate = jTextField1.getText();
+         String bookingdate = jTextField1.getText();
+
+         //TableModel model=jTable1.getModel();
+         //  String sql="INSERT INTO bookingtable(userid,routeid,dayid,seatno,deptdate,bookingdate) VALUES  ('" + userid + "','" + routeid + "','"+dayid+"','"+seatno+"','"+deptdate+"','"+bookingdate+"')";
+        try 
+        {
+         String sql="INSERT INTO bookingtable(userid,routeid,dayid,seatno,deptdate,bookingdate) VALUES  ('" + userid + "','" + routeid + "','"+dayid+"','"+seatno+"','"+deptdate+"','"+bookingdate+"')";
+         DB_Connection sqlObj=new DB_Connection();
+         sqlObj.Insert(sql);  
+         f=new JFrame();  
+         JOptionPane.showMessageDialog(f,"Insert Succefull");  
+        } catch( Exception e ){
+           e.printStackTrace();
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
      */
+    
+    
+     public void fillComboBox(){
+      try{
+        String selectQuery="select * from routetable";
+        DB_Connection selectobj=new DB_Connection();
+        ResultSet rs=selectobj.Select(selectQuery);
+        while(rs.next())
+            {
+                jComboBox1.addItem(rs.getString("deptCT"));
+                
+            }
+        
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+    
+    }
+     
+         public void fillComboBox2(){
+      try{
+        String selectQuery="select * from routetable";
+        DB_Connection selectobj=new DB_Connection();
+        ResultSet rs=selectobj.Select(selectQuery);
+        while(rs.next())
+            {
+                jComboBox2.addItem(rs.getString("destCT"));
+                
+            }
+        
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+    
+    }
+    
+     public ArrayList<ModelRoute> routeList(){
+         String deptCT =(String) jComboBox1.getSelectedItem();
+         String destCT =(String) jComboBox2.getSelectedItem();
+         ArrayList<ModelRoute> routeList =new ArrayList<>();
+        try{
+            String selectQuery="select * from routetable WHERE deptCT = '"+deptCT+"' && destCT='"+destCT+"'  ";
+           // String selectQuery = "SELECT routetable.routeID,routetable.deptCT,routetable.destCT,routetable.deptTime,routedaytable.dayid FROM routetable INNER JOIN routedaytable ON routetable.routeid=routedaytable.routeid WHERE routetable.deptCT='" + routeID + "' && routetable.destCT='" + routeID + "' && routedaytable.dayis='" + routeID + "';";
+            DB_Connection selectobj=new DB_Connection();
+            ResultSet rs=selectobj.Select(selectQuery);
+            ModelRoute modelRoute;
+        while(rs.next())
+            {
+                modelRoute=new ModelRoute(rs.getInt("routeID"),rs.getString("deptCT"),rs.getString("destCT"),rs.getString("deptTime"),rs.getString("price"),rs.getInt("capacity"));
+                routeList.add(modelRoute);
+            }
+        
+   
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+        return routeList;
+    }
+    
+        public void showUserTable(){
+           ArrayList<ModelRoute> List =routeList();
+           DefaultTableModel model;
+           model = (DefaultTableModel)jTable1.getModel();
+           Object[] row=new Object[6];
+           for(int i=0;i<List.size();i++){
+            row[0]=List.get(i).routeID();
+            row[1]=List.get(i).getDeptCT();
+            row[2]=List.get(i).getDestCT();
+            row[3]=List.get(i).getDeptTime();
+            row[4]=List.get(i).getPrice();
+            row[5]=List.get(i).getCapacity();
+            model.addRow(row);
+           }
+    
+    }
+        
+        
+        
+            public ArrayList<ModelBooking> bookingList1(){
+            ArrayList<ModelBooking> bookingList1 =new ArrayList<>();
+             try{
+            String selectQuery="select * from bookingtable";
+            DB_Connection selectobj=new DB_Connection();
+            ResultSet rs=selectobj.Select(selectQuery);
+            ModelBooking modelBooking;
+            while(rs.next())
+            {
+                modelBooking=new ModelBooking(rs.getInt("bookingid"),rs.getInt("userid"),rs.getInt("routeid"),rs.getInt("dayid"),rs.getInt("seatno"),rs.getString("deptdate"),rs.getString("bookingdate"));
+                bookingList1.add(modelBooking);
+            }
+        
+   
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+        return bookingList1;
+    }
+    
+        public void showUserTable1(){
+           ArrayList<ModelBooking> List = bookingList1();
+           DefaultTableModel model;
+           model = (DefaultTableModel)jTable2.getModel();
+           Object[] row=new Object[7];
+           for(int i=0;i<List.size();i++){
+            row[0]=List.get(i).bookingID();
+            row[1]=List.get(i).userID();
+            row[2]=List.get(i).routeID();
+            row[3]=List.get(i).dayID();
+            row[4]=List.get(i).seatNO();
+            row[5]=List.get(i).deptDate();
+            row[6]=List.get(i).bookingDate();
+            
+            model.addRow(row);
+           }
+    
+    }
+        public void userData(){
+         
+          
+        try{
+      
+         String date =jTextField1.getText();
+         Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(date); 
+         
+         LocalDate localDate = LocalDate.of(2020, 12, 22);
+         java.time.DayOfWeek dayOfWeek = localDate.getDayOfWeek();
+         
+         System.out.println("Day of week in number:"+dayOfWeek.getValue());
+         System.out.println("Day of week in text:"+dayOfWeek.toString());
+   
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+        
+        
+        }
+        
+        public void logout(){
+        System.out.println("Hello");
+        String id="1";
+        String loginid;
+        String lo="0";
+        try{
+        String selectQuery="select * from logs WHERE islogin='"+id+"' ";
+       
+        DB_Connection selectobj=new DB_Connection();
+        ResultSet rs=selectobj.Select(selectQuery);
+        while(rs.next())
+            {
+                //selectedId=Integer.toString(rs.getInt("routeid"));
+                loginid=rs.getString("logid");
+                String update="UPDATE logs SET islogin= '"+lo+"'  WHERE  logid = '" + loginid + "' ";
+                selectobj.update(update);
+                Login logo = new Login();
+                logo.setVisible(true);
+                this.setVisible(false);
+                
+            }   
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+      
+    
+    }
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
