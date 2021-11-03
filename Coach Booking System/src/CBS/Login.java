@@ -5,6 +5,8 @@
  */
 package CBS;
 import CBS.DatePicker;
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
 import java.util.Arrays;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -32,7 +34,7 @@ public class Login extends javax.swing.JFrame {
     
     public Login() {
         initComponents();
-       /* ClassLoginAndReg loginF=new ClassLoginAndReg();
+      /*  ClassLoginAndReg loginF=new ClassLoginAndReg();
 
         if(loginF.isLogin().equals("no")){
           this.setVisible(true);
@@ -41,15 +43,22 @@ public class Login extends javax.swing.JFrame {
         if(loginF.isLogin().equals("Customer")){
         Customer_Home chome = new Customer_Home();
         chome.setVisible(true);
-        this.setVisible(false);
+        // this.setVisible(false);
+        close();
+        
         }
         else if(loginF.isLogin().equals("Admin")){
         EBE_Home home = new EBE_Home();
         home.setVisible(true);
-        this.setVisible(false);}
-       }*/
-        
+        close();
+       }}*/
+
     }
+    /*
+     public void close(){
+        WindowEvent cw =new WindowEvent(this,WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(cw);
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -268,6 +277,11 @@ public class Login extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton1.setText("@");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton1MousePressed(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -543,6 +557,12 @@ public class Login extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btn_register1MousePressed
+
+    private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
+        // TODO add your handling code here:
+        DatePicker dp = new DatePicker(this);
+        textfield_DOB.setText(dp.setPickedDate());
+    }//GEN-LAST:event_jButton1MousePressed
 
     /**
      * @param args the command line arguments

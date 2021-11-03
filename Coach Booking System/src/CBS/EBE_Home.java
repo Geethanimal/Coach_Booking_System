@@ -119,6 +119,7 @@ public class EBE_Home extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         pnl_settings = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
@@ -403,7 +404,7 @@ public class EBE_Home extends javax.swing.JFrame {
             .addComponent(lbl_settings_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
-        pnl_side.add(btn_Logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 740, -1, -1));
+        pnl_side.add(btn_Logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, -1, -1));
 
         bg.add(pnl_side, java.awt.BorderLayout.WEST);
 
@@ -753,6 +754,9 @@ public class EBE_Home extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btn_addroutesaddform1MouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_addroutesaddform1MousePressed(evt);
+            }
         });
 
         jLabel19.setBackground(new java.awt.Color(204, 204, 204));
@@ -824,6 +828,14 @@ public class EBE_Home extends javax.swing.JFrame {
         pnl_editroutes.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, 90, -1));
         pnl_editroutes.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 90, -1));
         pnl_editroutes.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 90, -1));
+
+        jButton1.setText("Find by ID ");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        pnl_editroutes.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, 110, -1));
 
         jTabbedPane1.addTab("tab4", pnl_editroutes);
 
@@ -909,11 +921,16 @@ public class EBE_Home extends javax.swing.JFrame {
         dashboard = false;
         er = false;
         jTabbedPane1.setSelectedIndex(4);
+        logout();
     }//GEN-LAST:event_btn_LogoutMousePressed
 
     private void btn_DashboardMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DashboardMouseEntered
         // TODO add your handling code here:
+        
         gui.hoverset_sidebar_button(btn_Dashboard);
+         
+       
+        
     }//GEN-LAST:event_btn_DashboardMouseEntered
 
     private void btn_DashboardMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DashboardMouseExited
@@ -1085,6 +1102,45 @@ public class EBE_Home extends javax.swing.JFrame {
      
     }//GEN-LAST:event_btn_addroutesaddformMousePressed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String getID =jTextField2.getText();
+        String setDeptCT;
+           try{
+        String selectQuery="select * from routetable WHERE routeid= '"+getID+"' ";
+        DB_Connection selectobj=new DB_Connection();
+        ResultSet rs=selectobj.Select(selectQuery);
+        while(rs.next())
+            {
+                getID=Integer.toString(rs.getInt("routeid"));
+                
+                jTextField3.setText(rs.getString("deptCT"));
+                jTextField1.setText(rs.getString("destCT"));
+                textfield_deptime1.setText(rs.getString("deptTime"));
+                textfield_journeyprice1.setText(rs.getString("price"));
+                spinner_capacity1.setValue(rs.getString("capacity"));
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btn_addroutesaddform1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_addroutesaddform1MousePressed
+         // TODO add your handling code here:
+     String getID =jTextField2.getText();  
+     String deptCT = jTextField3.getText();
+     String destCT = jTextField1.getText();
+     String destTime = textfield_deptime1.getText();
+     String price = textfield_journeyprice1.getText();
+     int   capacity =(Integer) spinner_capacity1.getValue();
+     //float price =Float.parseFloat(textfield_journeyprice.getText());
+     String sql = "UPDATE routetable SET deptCT= '"+deptCT+"', destCT= '"+destCT+"' , deptTime = '"+destTime+"', price= '"+price+"',capacity= '"+capacity+"' WHERE  routeID='" + getID + "'";
+      DB_Connection selectobj=new DB_Connection();
+      selectobj.update(sql);
+    }//GEN-LAST:event_btn_addroutesaddform1MousePressed
+
     public ArrayList<ModelRoute> routeList(){
          ArrayList<ModelRoute> routeList =new ArrayList<>();
         try{
@@ -1121,6 +1177,36 @@ public class EBE_Home extends javax.swing.JFrame {
             row[5]=List.get(i).getCapacity();
             model.addRow(row);
            }
+    
+    }
+    
+     public void logout(){
+        String id="1";
+        String loginid;
+        String lo="0";
+        try{
+        String selectQuery="select * from logs WHERE islogin='"+id+"' ";
+       
+        DB_Connection selectobj=new DB_Connection();
+        ResultSet rs=selectobj.Select(selectQuery);
+        while(rs.next())
+            {
+                //selectedId=Integer.toString(rs.getInt("routeid"));
+                loginid=rs.getString("logid");
+                System.out.println(loginid);
+                String update="UPDATE logs SET islogin= '"+lo+"'  WHERE  logid = '" + loginid + "' ";
+                selectobj.update(update);
+                Login logo = new Login();
+                logo.setVisible(true);
+                this.setVisible(false);
+                
+            }   
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+      
     
     }
     
@@ -1178,6 +1264,7 @@ public class EBE_Home extends javax.swing.JFrame {
     private javax.swing.JCheckBox checkbox_thu;
     private javax.swing.JCheckBox checkbox_tue;
     private javax.swing.JCheckBox checkbox_wed;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
