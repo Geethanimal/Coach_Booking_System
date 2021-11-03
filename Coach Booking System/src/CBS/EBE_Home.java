@@ -5,6 +5,10 @@
  */
 package CBS;
 
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 
 /**
@@ -18,6 +22,7 @@ public class EBE_Home extends javax.swing.JFrame {
      */
     public EBE_Home() {
         initComponents();
+        
     }
 
     /**
@@ -669,13 +674,10 @@ public class EBE_Home extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "RouteID", "DeptCT", "DestCT", "DeptTime", "Price", "Capacity"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -1062,6 +1064,7 @@ public class EBE_Home extends javax.swing.JFrame {
         er = false;
         set = false;
         jTabbedPane1.setSelectedIndex(2);
+        showUserTable();
     }//GEN-LAST:event_btn_allroutesMousePressed
 
     private void btn_addroutesaddformMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_addroutesaddformMouseEntered
@@ -1132,7 +1135,44 @@ public class EBE_Home extends javax.swing.JFrame {
      
     }//GEN-LAST:event_btn_addroutesaddformMousePressed
 
+    public ArrayList<ModelRoute> routeList(){
+         ArrayList<ModelRoute> routeList =new ArrayList<>();
+        try{
+            String selectQuery="select * from routetable";
+            DB_Connection selectobj=new DB_Connection();
+            ResultSet rs=selectobj.Select(selectQuery);
+            ModelRoute modelRoute;
+        while(rs.next())
+            {
+                modelRoute=new ModelRoute(rs.getInt("routeID"),rs.getString("deptCT"),rs.getString("destCT"),rs.getString("deptTime"),rs.getString("price"),rs.getInt("capacity"));
+                routeList.add(modelRoute);
+            }
+        
+   
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+        return routeList;
+    }
     
+        public void showUserTable(){
+           ArrayList<ModelRoute> List =routeList();
+           DefaultTableModel model;
+           model = (DefaultTableModel)jTable1.getModel();
+           Object[] row=new Object[6];
+           for(int i=0;i<List.size();i++){
+            row[0]=List.get(i).routeID();
+            row[1]=List.get(i).getDeptCT();
+            row[2]=List.get(i).getDestCT();
+            row[3]=List.get(i).getDeptTime();
+            row[4]=List.get(i).getPrice();
+            row[5]=List.get(i).getCapacity();
+            model.addRow(row);
+           }
+    
+    }
     
     /**
      * @param args the command line arguments
