@@ -28,8 +28,7 @@ public class DB_Connection {
         conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/coachbookingdb","root","123123kajun123");
         //stmt = (Statement) conn.createStatement();
          if(conn != null){
-          
-          System.out.println("Connected");
+            System.out.println("Connected");
          }
        }
       catch(Exception e){
@@ -71,7 +70,6 @@ public class DB_Connection {
         
     public void preInsert(String id,String day){  
         try{
-           // the mysql insert statement
           String query = " insert into routedaytable(routeid,dayid)" + " values (?, ?)";
            // create the mysql insert preparedstatement
           PreparedStatement preparedStmt = conn.prepareStatement(query);
@@ -80,6 +78,18 @@ public class DB_Connection {
           // execute the preparedstatement
           preparedStmt.execute();
           conn.close();       
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+    }
+    
+        public void update(String sql){  
+        try{
+;          java.sql.Statement stat = conn.createStatement(); 
+           stat.executeUpdate(sql);
+           System.out.println("Database updated successfully ");
         }
         catch(Exception e)
         {

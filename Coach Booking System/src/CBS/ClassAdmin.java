@@ -5,6 +5,8 @@
 package CBS;
 
 import java.sql.ResultSet;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,6 +18,7 @@ public class ClassAdmin {
     private String deptTime;
     private float price;
     private int capacity;
+    JFrame f;  
     
     public ClassAdmin(String deptCT,String destCT,String deptTime,float price,int capacity){
       this.deptCT = deptCT;
@@ -24,6 +27,8 @@ public class ClassAdmin {
       this.price = price;
       this.capacity =capacity;
     }
+    
+    
     
     public String getDeptCT() {
       return deptCT;
@@ -50,7 +55,7 @@ public class ClassAdmin {
         {
          String sql = "INSERT INTO routetable(deptCT,destCT,deptTime,price,capacity) VALUES ('" + deptCT + "','" + destCT + "','" + deptTime + "','" + price + "','" + capacity + "')";
          DB_Connection sqlObj=new DB_Connection();
-         sqlObj.Insert(sql);  
+         sqlObj.Insert(sql);   
         } catch( Exception e ){
                  e.printStackTrace();
         }
@@ -59,13 +64,6 @@ public class ClassAdmin {
     
      public void checkBoxHandle(boolean s1,boolean s2,boolean s3,boolean s4,boolean s5,boolean s6,boolean s7){
         String maxids=getMaxid();
-        System.out.println(s1);
-        System.out.println(s2);
-        System.out.println(s3);
-        System.out.println(s4);
-        System.out.println(s5);
-        System.out.println(s6);
-        System.out.println(s7);
         if (s1) {
         try 
         {
@@ -135,6 +133,8 @@ public class ClassAdmin {
                  e.printStackTrace();
         }
         }
+        f=new JFrame();  
+        JOptionPane.showMessageDialog(f,"Insert Succefull");  
     }
      
      //maxid
@@ -143,14 +143,10 @@ public class ClassAdmin {
     String maxid;
      try{
         String selectQuery="select * from routetable WHERE routeid= (SELECT MAX(routeid) from routetable) ";
-        //select * from routetable WHERE routeid= (SELECT MAX(routeid) from routetable)
-        //SELECT * FROM CriminalsTable  WHERE CR_ID = (SELECT MAX(CR_ID) from CriminalsTable)
         DB_Connection selectobj=new DB_Connection();
         ResultSet rs=selectobj.Select(selectQuery);
         while(rs.next())
             {
-                //jComboBox1.addItem(rs.getString("userName"));
-                //System.out.println(Integer.toString(rs.getInt("idusers")));
                 maxid=Integer.toString(rs.getInt("routeid"));
                 return maxid;
             }   

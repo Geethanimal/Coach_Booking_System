@@ -5,6 +5,10 @@
  */
 package CBS;
 import CBS.DatePicker;
+import java.util.Arrays;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Geethan
@@ -14,9 +18,37 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    
+    public String password;
+    public String password2;
+    public String firstName;
+    public String surname;
+    public String email;
+    public String gender;
+    public String dob;
+    public String phoneNumber;
+    public String address;
+    public JFrame f;
+    
     public Login() {
         initComponents();
-        DB_Connection con=new DB_Connection();
+       /* ClassLoginAndReg loginF=new ClassLoginAndReg();
+
+        if(loginF.isLogin().equals("no")){
+          this.setVisible(true);
+        }
+        else{
+        if(loginF.isLogin().equals("Customer")){
+        Customer_Home chome = new Customer_Home();
+        chome.setVisible(true);
+        this.setVisible(false);
+        }
+        else if(loginF.isLogin().equals("Admin")){
+        EBE_Home home = new EBE_Home();
+        home.setVisible(true);
+        this.setVisible(false);}
+       }*/
+        
     }
 
     /**
@@ -30,7 +62,7 @@ public class Login extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        text_username = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -77,8 +109,8 @@ public class Login extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(34, 40, 44));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 250, -1));
+        text_username.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jPanel1.add(text_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 250, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 204, 204));
@@ -411,9 +443,35 @@ public class Login extends javax.swing.JFrame {
 
     private void btn_loginMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_loginMousePressed
         // TODO add your handling code here:
-        EBE_Home home = new EBE_Home();
-        home.setVisible(true);
-        this.setVisible(false);
+         
+         boolean isCorrect = true;
+         EBE_Home home = new EBE_Home();
+         String userName=text_username.getText();
+         String password = String.valueOf(jPasswordField1.getPassword());         
+         
+         if(password.equals("admin") && userName.equals("admin")){
+               home.setVisible(true);
+               this.setVisible(false);
+               ClassLoginAndReg loginAdmin=new ClassLoginAndReg();
+               loginAdmin.userLogin("0","Admin");
+         }
+         else{
+             
+              ClassLoginAndReg login=new ClassLoginAndReg();
+              if(login.checkUserLogin(userName, password)){
+                  Customer_Home chome = new Customer_Home();
+                  chome.setVisible(true);
+                  this.setVisible(false);
+              
+              }else{
+                 f=new JFrame();  
+                 JOptionPane.showMessageDialog(f,"Incorect password or email "); 
+              }
+        }
+       
+       
+     
+
     }//GEN-LAST:event_btn_loginMousePressed
 
     private void btn_loginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_loginMouseEntered
@@ -466,6 +524,24 @@ public class Login extends javax.swing.JFrame {
 
     private void btn_register1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_register1MousePressed
         // TODO add your handling code here:
+        firstName = this.jTextField2.getText();
+        surname = this.jTextField3.getText();
+        email = this.jTextField4.getText();
+        password2 = String.valueOf(this.jPasswordField3.getPassword());
+        password = String.valueOf(this.jPasswordField2.getPassword());
+        gender = this.jTextField6.getText();
+        dob = this.textfield_DOB.getText();
+        phoneNumber = this.jTextField7.getText();
+        address = this.jTextArea1.getText();
+        if(password2.equals(password)){
+          ClassLoginAndReg reg=new ClassLoginAndReg();
+          reg.addUser(firstName, surname, email, password, gender, dob, phoneNumber, address);
+        }else{
+              f=new JFrame();  
+              JOptionPane.showMessageDialog(f,"The Passwprd do not match "); 
+        
+        }
+
     }//GEN-LAST:event_btn_register1MousePressed
 
     /**
@@ -496,11 +572,16 @@ public class Login extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);
             }
+            
         });
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -536,12 +617,12 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField text_username;
     private javax.swing.JTextField textfield_DOB;
     // End of variables declaration//GEN-END:variables
 }
