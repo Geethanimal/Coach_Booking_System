@@ -57,15 +57,11 @@ public class EBE_Home extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         lbl_routeid = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        cb_descountry = new javax.swing.JComboBox<>();
-        cb_destown = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        cb_deptown = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
-        cb_depcountry = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
         checkbox_mon = new javax.swing.JCheckBox();
         checkbox_tue = new javax.swing.JCheckBox();
@@ -84,6 +80,10 @@ public class EBE_Home extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         textfield_deptime = new javax.swing.JTextField();
         textfield_journeyprice = new javax.swing.JTextField();
+        txtfield_deptCountry = new javax.swing.JTextField();
+        txtfield_deptTown = new javax.swing.JTextField();
+        txtfield_destCountry = new javax.swing.JTextField();
+        txtfield_destTown = new javax.swing.JTextField();
         pnl_allroutes = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
@@ -491,12 +491,6 @@ public class EBE_Home extends javax.swing.JFrame {
         jLabel7.setText("Select Depature :");
         pnl_addroutes.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, -1, -1));
 
-        cb_descountry.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnl_addroutes.add(cb_descountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 100, -1));
-
-        cb_destown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnl_addroutes.add(cb_destown, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 100, -1));
-
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(204, 204, 204));
         jLabel8.setText("Capacity                 :");
@@ -517,16 +511,10 @@ public class EBE_Home extends javax.swing.JFrame {
         jLabel11.setText("Country :");
         pnl_addroutes.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, -1, -1));
 
-        cb_deptown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnl_addroutes.add(cb_deptown, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 100, -1));
-
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(204, 204, 204));
         jLabel12.setText("Town :");
         pnl_addroutes.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, -1, -1));
-
-        cb_depcountry.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnl_addroutes.add(cb_depcountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 100, -1));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(204, 204, 204));
@@ -585,6 +573,9 @@ public class EBE_Home extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 btn_addroutesaddformMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_addroutesaddformMousePressed(evt);
             }
         });
 
@@ -646,6 +637,10 @@ public class EBE_Home extends javax.swing.JFrame {
         pnl_addroutes.add(btn_addroutescancelform, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 710, 110, 30));
         pnl_addroutes.add(textfield_deptime, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 500, 190, -1));
         pnl_addroutes.add(textfield_journeyprice, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 570, 190, -1));
+        pnl_addroutes.add(txtfield_deptCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 100, -1));
+        pnl_addroutes.add(txtfield_deptTown, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, 120, -1));
+        pnl_addroutes.add(txtfield_destCountry, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 100, -1));
+        pnl_addroutes.add(txtfield_destTown, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 320, 130, -1));
 
         jTabbedPane1.addTab("tab2", pnl_addroutes);
 
@@ -1109,6 +1104,34 @@ public class EBE_Home extends javax.swing.JFrame {
         gui.hoverreset_pnlcenter_addbutton(btn_addroutesaddform1);
     }//GEN-LAST:event_btn_addroutesaddform1MouseExited
 
+    private void btn_addroutesaddformMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_addroutesaddformMousePressed
+        // TODO add your handling code here:
+     boolean selected1 = checkbox_mon.isSelected();
+     boolean selected2 = checkbox_tue.isSelected();
+     boolean selected3 = checkbox_wed.isSelected();
+     boolean selected4 = checkbox_thu.isSelected();
+     boolean selected5 = checkbox_fri.isSelected();
+     boolean selected6 = checkbox_sat.isSelected();
+     boolean selected7 = checkbox_sun.isSelected();
+     
+     String deptCountry = txtfield_deptCountry.getText();
+     String deptCity = txtfield_deptTown.getText();
+     String destCountry = txtfield_destCountry.getText();
+     String destCity = txtfield_destTown.getText();
+     String deptTime = textfield_deptime.getText();
+     float price =Float.parseFloat(textfield_journeyprice.getText());
+     
+     String deptCT=deptCountry+" "+ deptCity;
+     String destCT=destCountry+" "+ destCity;
+     
+     int capacity =(Integer) spinner_capacity.getValue();
+     
+     ClassAdmin obj=new ClassAdmin(deptCT,destCT,deptTime,price,capacity);
+     obj.addRoute();
+     obj.checkBoxHandle(selected1,selected2,selected3,selected4,selected5,selected6,selected7);
+     
+    }//GEN-LAST:event_btn_addroutesaddformMousePressed
+
     
     
     /**
@@ -1158,13 +1181,9 @@ public class EBE_Home extends javax.swing.JFrame {
     private javax.swing.JPanel btn_addroutescancelform1;
     private javax.swing.JPanel btn_allroutes;
     private javax.swing.JPanel btn_editroutes;
-    private javax.swing.JComboBox<String> cb_depcountry;
     private javax.swing.JComboBox<String> cb_depcountry1;
-    private javax.swing.JComboBox<String> cb_deptown;
     private javax.swing.JComboBox<String> cb_deptown1;
-    private javax.swing.JComboBox<String> cb_descountry;
     private javax.swing.JComboBox<String> cb_descountry1;
-    private javax.swing.JComboBox<String> cb_destown;
     private javax.swing.JComboBox<String> cb_destown1;
     private javax.swing.JCheckBox checkbox_fri;
     private javax.swing.JCheckBox checkbox_fri1;
@@ -1243,5 +1262,9 @@ public class EBE_Home extends javax.swing.JFrame {
     private javax.swing.JTextField textfield_deptime1;
     private javax.swing.JTextField textfield_journeyprice;
     private javax.swing.JTextField textfield_journeyprice1;
+    private javax.swing.JTextField txtfield_deptCountry;
+    private javax.swing.JTextField txtfield_deptTown;
+    private javax.swing.JTextField txtfield_destCountry;
+    private javax.swing.JTextField txtfield_destTown;
     // End of variables declaration//GEN-END:variables
 }
