@@ -5,10 +5,12 @@
  */
 package CBS;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
+
 
 
 /**
@@ -22,6 +24,8 @@ public class EBE_Home extends javax.swing.JFrame {
      */
     public EBE_Home() {
         initComponents();
+        showUserTable();
+        
         
     }
 
@@ -49,8 +53,8 @@ public class EBE_Home extends javax.swing.JFrame {
         btn_editroutes = new javax.swing.JPanel();
         leftpnl_manageroutes_btn = new javax.swing.JPanel();
         lbl_manageroutes_btn = new javax.swing.JLabel();
-        btn_Settings = new javax.swing.JPanel();
-        leftpnl_settings_btn = new javax.swing.JPanel();
+        btn_Logout = new javax.swing.JPanel();
+        leftpnl_logout_btn = new javax.swing.JPanel();
         lbl_settings_btn = new javax.swing.JLabel();
         pnl_center = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -93,7 +97,7 @@ public class EBE_Home extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        table_allroutes = new javax.swing.JTable();
         pnl_editroutes = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
@@ -107,30 +111,19 @@ public class EBE_Home extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         textfield_deptime1 = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
-        checkbox_sun1 = new javax.swing.JCheckBox();
-        checkbox_sat1 = new javax.swing.JCheckBox();
-        checkbox_fri1 = new javax.swing.JCheckBox();
-        checkbox_thu1 = new javax.swing.JCheckBox();
-        checkbox_wed1 = new javax.swing.JCheckBox();
-        checkbox_tue1 = new javax.swing.JCheckBox();
-        checkbox_mon1 = new javax.swing.JCheckBox();
-        jLabel23 = new javax.swing.JLabel();
-        cb_destown1 = new javax.swing.JComboBox<>();
-        jLabel24 = new javax.swing.JLabel();
-        cb_descountry1 = new javax.swing.JComboBox<>();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
-        cb_depcountry1 = new javax.swing.JComboBox<>();
-        jLabel28 = new javax.swing.JLabel();
-        cb_deptown1 = new javax.swing.JComboBox<>();
         jLabel29 = new javax.swing.JLabel();
         lbl_routeid1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
         pnl_settings = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
 
-        setMaximumSize(new java.awt.Dimension(1920, 1080));
+        setMaximumSize(new java.awt.Dimension(1540, 815));
         setMinimumSize(new java.awt.Dimension(1080, 720));
         setPreferredSize(new java.awt.Dimension(1540, 815));
 
@@ -361,56 +354,56 @@ public class EBE_Home extends javax.swing.JFrame {
 
         pnl_side.add(btn_editroutes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, -1, -1));
 
-        btn_Settings.setBackground(new java.awt.Color(21, 25, 28));
-        btn_Settings.setPreferredSize(new java.awt.Dimension(480, 55));
-        btn_Settings.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_Logout.setBackground(new java.awt.Color(21, 25, 28));
+        btn_Logout.setPreferredSize(new java.awt.Dimension(480, 55));
+        btn_Logout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btn_SettingsMouseEntered(evt);
+                btn_LogoutMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                btn_SettingsMouseExited(evt);
+                btn_LogoutMouseExited(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                btn_SettingsMousePressed(evt);
+                btn_LogoutMousePressed(evt);
             }
         });
 
-        leftpnl_settings_btn.setBackground(new java.awt.Color(21, 25, 28));
-        leftpnl_settings_btn.setPreferredSize(new java.awt.Dimension(5, 55));
+        leftpnl_logout_btn.setBackground(new java.awt.Color(21, 25, 28));
+        leftpnl_logout_btn.setPreferredSize(new java.awt.Dimension(5, 55));
 
-        javax.swing.GroupLayout leftpnl_settings_btnLayout = new javax.swing.GroupLayout(leftpnl_settings_btn);
-        leftpnl_settings_btn.setLayout(leftpnl_settings_btnLayout);
-        leftpnl_settings_btnLayout.setHorizontalGroup(
-            leftpnl_settings_btnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout leftpnl_logout_btnLayout = new javax.swing.GroupLayout(leftpnl_logout_btn);
+        leftpnl_logout_btn.setLayout(leftpnl_logout_btnLayout);
+        leftpnl_logout_btnLayout.setHorizontalGroup(
+            leftpnl_logout_btnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 5, Short.MAX_VALUE)
         );
-        leftpnl_settings_btnLayout.setVerticalGroup(
-            leftpnl_settings_btnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        leftpnl_logout_btnLayout.setVerticalGroup(
+            leftpnl_logout_btnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
         lbl_settings_btn.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lbl_settings_btn.setForeground(new java.awt.Color(204, 204, 204));
         lbl_settings_btn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbl_settings_btn.setText("Settings");
+        lbl_settings_btn.setText("Log out");
 
-        javax.swing.GroupLayout btn_SettingsLayout = new javax.swing.GroupLayout(btn_Settings);
-        btn_Settings.setLayout(btn_SettingsLayout);
-        btn_SettingsLayout.setHorizontalGroup(
-            btn_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_SettingsLayout.createSequentialGroup()
-                .addComponent(leftpnl_settings_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout btn_LogoutLayout = new javax.swing.GroupLayout(btn_Logout);
+        btn_Logout.setLayout(btn_LogoutLayout);
+        btn_LogoutLayout.setHorizontalGroup(
+            btn_LogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_LogoutLayout.createSequentialGroup()
+                .addComponent(leftpnl_logout_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addComponent(lbl_settings_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(206, 206, 206))
         );
-        btn_SettingsLayout.setVerticalGroup(
-            btn_SettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(leftpnl_settings_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        btn_LogoutLayout.setVerticalGroup(
+            btn_LogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(leftpnl_logout_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(lbl_settings_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
-        pnl_side.add(btn_Settings, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 740, -1, -1));
+        pnl_side.add(btn_Logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 740, -1, -1));
 
         bg.add(pnl_side, java.awt.BorderLayout.WEST);
 
@@ -672,7 +665,10 @@ public class EBE_Home extends javax.swing.JFrame {
 
         pnl_allroutes.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 78, -1, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table_allroutes.setBackground(new java.awt.Color(34, 40, 44));
+        table_allroutes.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        table_allroutes.setForeground(new java.awt.Color(204, 204, 204));
+        table_allroutes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -680,7 +676,13 @@ public class EBE_Home extends javax.swing.JFrame {
                 "RouteID", "DeptCT", "DestCT", "DeptTime", "Price", "Capacity"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        table_allroutes.setFocusable(false);
+        table_allroutes.setRowHeight(35);
+        table_allroutes.setSelectionBackground(new java.awt.Color(204, 204, 204));
+        table_allroutes.setSelectionForeground(new java.awt.Color(34, 40, 44));
+        table_allroutes.setShowVerticalLines(true);
+        table_allroutes.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(table_allroutes);
 
         pnl_allroutes.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 920, 680));
 
@@ -721,7 +723,7 @@ public class EBE_Home extends javax.swing.JFrame {
         jLabel18.setBackground(new java.awt.Color(204, 204, 204));
         jLabel18.setForeground(new java.awt.Color(204, 204, 204));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("Cancel");
+        jLabel18.setText("Delete");
 
         javax.swing.GroupLayout btn_addroutescancelform1Layout = new javax.swing.GroupLayout(btn_addroutescancelform1);
         btn_addroutescancelform1.setLayout(btn_addroutescancelform1Layout);
@@ -740,7 +742,7 @@ public class EBE_Home extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pnl_editroutes.add(btn_addroutescancelform1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 710, 110, 30));
+        pnl_editroutes.add(btn_addroutescancelform1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 590, 110, 30));
 
         btn_addroutesaddform1.setBackground(new java.awt.Color(0, 102, 255));
         btn_addroutesaddform1.setForeground(new java.awt.Color(204, 204, 204));
@@ -756,7 +758,7 @@ public class EBE_Home extends javax.swing.JFrame {
         jLabel19.setBackground(new java.awt.Color(204, 204, 204));
         jLabel19.setForeground(new java.awt.Color(204, 204, 204));
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setText("ADD");
+        jLabel19.setText("Update");
 
         javax.swing.GroupLayout btn_addroutesaddform1Layout = new javax.swing.GroupLayout(btn_addroutesaddform1);
         btn_addroutesaddform1.setLayout(btn_addroutesaddform1Layout);
@@ -775,105 +777,53 @@ public class EBE_Home extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pnl_editroutes.add(btn_addroutesaddform1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 710, 110, 30));
-        pnl_editroutes.add(spinner_capacity1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 630, 190, -1));
+        pnl_editroutes.add(btn_addroutesaddform1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 590, 110, 30));
+        pnl_editroutes.add(spinner_capacity1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 500, 190, -1));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(204, 204, 204));
         jLabel20.setText("Capacity                 :");
-        pnl_editroutes.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 620, -1, -1));
-        pnl_editroutes.add(textfield_journeyprice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 570, 190, -1));
+        pnl_editroutes.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 500, -1, -1));
+        pnl_editroutes.add(textfield_journeyprice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 440, 190, -1));
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(204, 204, 204));
         jLabel21.setText("Journey Price         :");
-        pnl_editroutes.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 560, -1, -1));
-        pnl_editroutes.add(textfield_deptime1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 500, 190, -1));
+        pnl_editroutes.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 440, -1, -1));
+        pnl_editroutes.add(textfield_deptime1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 190, -1));
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(204, 204, 204));
         jLabel22.setText("Set Depature time :");
-        pnl_editroutes.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 490, -1, -1));
-
-        checkbox_sun1.setForeground(new java.awt.Color(204, 204, 204));
-        checkbox_sun1.setText("SUN");
-        pnl_editroutes.add(checkbox_sun1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 440, -1, -1));
-
-        checkbox_sat1.setForeground(new java.awt.Color(204, 204, 204));
-        checkbox_sat1.setText("SAT");
-        pnl_editroutes.add(checkbox_sat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 440, -1, -1));
-
-        checkbox_fri1.setForeground(new java.awt.Color(204, 204, 204));
-        checkbox_fri1.setText("FRI");
-        pnl_editroutes.add(checkbox_fri1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 440, -1, -1));
-
-        checkbox_thu1.setForeground(new java.awt.Color(204, 204, 204));
-        checkbox_thu1.setText("THU");
-        pnl_editroutes.add(checkbox_thu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 440, -1, -1));
-
-        checkbox_wed1.setForeground(new java.awt.Color(204, 204, 204));
-        checkbox_wed1.setText("WED");
-        pnl_editroutes.add(checkbox_wed1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 440, -1, -1));
-
-        checkbox_tue1.setForeground(new java.awt.Color(204, 204, 204));
-        checkbox_tue1.setText("TUE");
-        pnl_editroutes.add(checkbox_tue1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 440, -1, -1));
-
-        checkbox_mon1.setForeground(new java.awt.Color(204, 204, 204));
-        checkbox_mon1.setText("MON");
-        pnl_editroutes.add(checkbox_mon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 440, -1, -1));
-
-        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel23.setText("Select Available days of the Week");
-        pnl_editroutes.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, -1, -1));
-
-        cb_destown1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnl_editroutes.add(cb_destown1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 100, -1));
-
-        jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel24.setText("Town :");
-        pnl_editroutes.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, -1, -1));
-
-        cb_descountry1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnl_editroutes.add(cb_descountry1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 100, -1));
+        pnl_editroutes.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, -1, -1));
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel25.setText("Country :");
+        jLabel25.setText("Country /Town:");
         pnl_editroutes.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, -1, -1));
 
         jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel26.setText("Select Destination");
+        jLabel26.setText("Destination :");
         pnl_editroutes.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
 
         jLabel27.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel27.setText("Country :");
+        jLabel27.setText("Country/Town :");
         pnl_editroutes.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, -1, -1));
-
-        cb_depcountry1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnl_editroutes.add(cb_depcountry1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 100, -1));
-
-        jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel28.setText("Town :");
-        pnl_editroutes.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, -1, -1));
-
-        cb_deptown1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        pnl_editroutes.add(cb_deptown1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 100, -1));
 
         jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel29.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel29.setText("Select Depature :");
+        jLabel29.setText("Depature :");
         pnl_editroutes.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, -1, -1));
 
         lbl_routeid1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         lbl_routeid1.setForeground(new java.awt.Color(204, 204, 204));
-        lbl_routeid1.setText("Route ID : 0000");
+        lbl_routeid1.setText("Route ID : ");
         pnl_editroutes.add(lbl_routeid1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, -1));
+        pnl_editroutes.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, 90, -1));
+        pnl_editroutes.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 90, -1));
+        pnl_editroutes.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, 90, -1));
 
         jTabbedPane1.addTab("tab4", pnl_editroutes);
 
@@ -936,7 +886,7 @@ public class EBE_Home extends javax.swing.JFrame {
         gui.resetcolor_sidebar_button(btn_addroutes,leftpnl_addroutes_btn);
         gui.resetcolor_sidebar_button(btn_allroutes,leftpnl_allroutes_btn);
         gui.resetcolor_sidebar_button(btn_editroutes,leftpnl_manageroutes_btn);
-        gui.resetcolor_sidebar_button(btn_Settings,leftpnl_settings_btn);
+        gui.resetcolor_sidebar_button(btn_Logout,leftpnl_logout_btn);
         dashboard = true;
         adr = false;
         ar = false;
@@ -945,9 +895,9 @@ public class EBE_Home extends javax.swing.JFrame {
         jTabbedPane1.setSelectedIndex(0);
     }//GEN-LAST:event_btn_DashboardMousePressed
 
-    private void btn_SettingsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SettingsMousePressed
+    private void btn_LogoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_LogoutMousePressed
         // TODO add your handling code here:
-        gui.setcolor_sidebar_button(btn_Settings,leftpnl_settings_btn);
+        gui.setcolor_sidebar_button(btn_Logout,leftpnl_logout_btn);
         gui.resetcolor_sidebar_button(btn_Dashboard,leftpnl_dashboard_btn);
         gui.resetcolor_sidebar_button(btn_editroutes,leftpnl_manageroutes_btn);
         gui.resetcolor_sidebar_button(btn_addroutes,leftpnl_addroutes_btn);
@@ -959,7 +909,7 @@ public class EBE_Home extends javax.swing.JFrame {
         dashboard = false;
         er = false;
         jTabbedPane1.setSelectedIndex(4);
-    }//GEN-LAST:event_btn_SettingsMousePressed
+    }//GEN-LAST:event_btn_LogoutMousePressed
 
     private void btn_DashboardMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_DashboardMouseEntered
         // TODO add your handling code here:
@@ -973,17 +923,17 @@ public class EBE_Home extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_DashboardMouseExited
 
-    private void btn_SettingsMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SettingsMouseEntered
+    private void btn_LogoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_LogoutMouseEntered
         // TODO add your handling code here:
-        gui.hoverset_sidebar_button(btn_Settings);
-    }//GEN-LAST:event_btn_SettingsMouseEntered
+        gui.hoverset_sidebar_button(btn_Logout);
+    }//GEN-LAST:event_btn_LogoutMouseEntered
 
-    private void btn_SettingsMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_SettingsMouseExited
+    private void btn_LogoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_LogoutMouseExited
         // TODO add your handling code here:
         if(set==false){
-        gui.hoverreset_sidebar_button(btn_Settings);
+        gui.hoverreset_sidebar_button(btn_Logout);
         }
-    }//GEN-LAST:event_btn_SettingsMouseExited
+    }//GEN-LAST:event_btn_LogoutMouseExited
 
     private void btn_editroutesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_editroutesMouseEntered
         // TODO add your handling code here:
@@ -1001,7 +951,7 @@ public class EBE_Home extends javax.swing.JFrame {
         // TODO add your handling code here:
         gui.setcolor_sidebar_button(btn_editroutes,leftpnl_manageroutes_btn);
         gui.resetcolor_sidebar_button(btn_Dashboard,leftpnl_dashboard_btn);
-        gui.resetcolor_sidebar_button(btn_Settings,leftpnl_settings_btn);
+        gui.resetcolor_sidebar_button(btn_Logout,leftpnl_logout_btn);
         gui.resetcolor_sidebar_button(btn_addroutes,leftpnl_addroutes_btn);
         gui.resetcolor_sidebar_button(btn_allroutes,leftpnl_allroutes_btn);
         er = true;
@@ -1028,7 +978,7 @@ public class EBE_Home extends javax.swing.JFrame {
         // TODO add your handling code here:
         gui.setcolor_sidebar_button(btn_addroutes,leftpnl_addroutes_btn);
         gui.resetcolor_sidebar_button(btn_Dashboard,leftpnl_dashboard_btn);
-        gui.resetcolor_sidebar_button(btn_Settings,leftpnl_settings_btn);
+        gui.resetcolor_sidebar_button(btn_Logout,leftpnl_logout_btn);
         gui.resetcolor_sidebar_button(btn_editroutes,leftpnl_manageroutes_btn);
         gui.resetcolor_sidebar_button(btn_allroutes,leftpnl_allroutes_btn);
         adr = true;
@@ -1055,7 +1005,7 @@ public class EBE_Home extends javax.swing.JFrame {
         // TODO add your handling code here:
         gui.setcolor_sidebar_button(btn_allroutes,leftpnl_allroutes_btn);
         gui.resetcolor_sidebar_button(btn_Dashboard,leftpnl_dashboard_btn);
-        gui.resetcolor_sidebar_button(btn_Settings,leftpnl_settings_btn);
+        gui.resetcolor_sidebar_button(btn_Logout,leftpnl_logout_btn);
         gui.resetcolor_sidebar_button(btn_editroutes,leftpnl_manageroutes_btn);
         gui.resetcolor_sidebar_button(btn_addroutes,leftpnl_addroutes_btn);
         ar = true;
@@ -1064,7 +1014,7 @@ public class EBE_Home extends javax.swing.JFrame {
         er = false;
         set = false;
         jTabbedPane1.setSelectedIndex(2);
-        showUserTable();
+        
     }//GEN-LAST:event_btn_allroutesMousePressed
 
     private void btn_addroutesaddformMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_addroutesaddformMouseEntered
@@ -1160,7 +1110,7 @@ public class EBE_Home extends javax.swing.JFrame {
         public void showUserTable(){
            ArrayList<ModelRoute> List =routeList();
            DefaultTableModel model;
-           model = (DefaultTableModel)jTable1.getModel();
+           model = (DefaultTableModel)table_allroutes.getModel();
            Object[] row=new Object[6];
            for(int i=0;i<List.size();i++){
             row[0]=List.get(i).routeID();
@@ -1213,7 +1163,7 @@ public class EBE_Home extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
     private javax.swing.JPanel btn_Dashboard;
-    private javax.swing.JPanel btn_Settings;
+    private javax.swing.JPanel btn_Logout;
     private javax.swing.JPanel btn_addroutes;
     private javax.swing.JPanel btn_addroutesaddform;
     private javax.swing.JPanel btn_addroutesaddform1;
@@ -1221,24 +1171,13 @@ public class EBE_Home extends javax.swing.JFrame {
     private javax.swing.JPanel btn_addroutescancelform1;
     private javax.swing.JPanel btn_allroutes;
     private javax.swing.JPanel btn_editroutes;
-    private javax.swing.JComboBox<String> cb_depcountry1;
-    private javax.swing.JComboBox<String> cb_deptown1;
-    private javax.swing.JComboBox<String> cb_descountry1;
-    private javax.swing.JComboBox<String> cb_destown1;
     private javax.swing.JCheckBox checkbox_fri;
-    private javax.swing.JCheckBox checkbox_fri1;
     private javax.swing.JCheckBox checkbox_mon;
-    private javax.swing.JCheckBox checkbox_mon1;
     private javax.swing.JCheckBox checkbox_sat;
-    private javax.swing.JCheckBox checkbox_sat1;
     private javax.swing.JCheckBox checkbox_sun;
-    private javax.swing.JCheckBox checkbox_sun1;
     private javax.swing.JCheckBox checkbox_thu;
-    private javax.swing.JCheckBox checkbox_thu1;
     private javax.swing.JCheckBox checkbox_tue;
-    private javax.swing.JCheckBox checkbox_tue1;
     private javax.swing.JCheckBox checkbox_wed;
-    private javax.swing.JCheckBox checkbox_wed1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1254,12 +1193,9 @@ public class EBE_Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1275,7 +1211,9 @@ public class EBE_Home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lbl_dashboard_btn;
     private javax.swing.JLabel lbl_manageroutes_btn;
     private javax.swing.JLabel lbl_manageroutes_btn1;
@@ -1286,8 +1224,8 @@ public class EBE_Home extends javax.swing.JFrame {
     private javax.swing.JPanel leftpnl_addroutes_btn;
     private javax.swing.JPanel leftpnl_allroutes_btn;
     private javax.swing.JPanel leftpnl_dashboard_btn;
+    private javax.swing.JPanel leftpnl_logout_btn;
     private javax.swing.JPanel leftpnl_manageroutes_btn;
-    private javax.swing.JPanel leftpnl_settings_btn;
     private javax.swing.JPanel pnl_addroutes;
     private javax.swing.JPanel pnl_allroutes;
     private javax.swing.JPanel pnl_center;
@@ -1298,6 +1236,7 @@ public class EBE_Home extends javax.swing.JFrame {
     private javax.swing.JPanel sidepnl_top;
     private javax.swing.JSpinner spinner_capacity;
     private javax.swing.JSpinner spinner_capacity1;
+    private javax.swing.JTable table_allroutes;
     private javax.swing.JTextField textfield_deptime;
     private javax.swing.JTextField textfield_deptime1;
     private javax.swing.JTextField textfield_journeyprice;
