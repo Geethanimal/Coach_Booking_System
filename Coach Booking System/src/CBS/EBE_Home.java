@@ -41,6 +41,7 @@ public class EBE_Home extends javax.swing.JFrame {
         bg = new javax.swing.JPanel();
         pnl_side = new javax.swing.JPanel();
         sidepnl_top = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
         btn_Dashboard = new javax.swing.JPanel();
         leftpnl_dashboard_btn = new javax.swing.JPanel();
         lbl_dashboard_btn = new javax.swing.JLabel();
@@ -126,29 +127,39 @@ public class EBE_Home extends javax.swing.JFrame {
 
         setMaximumSize(new java.awt.Dimension(1540, 815));
         setMinimumSize(new java.awt.Dimension(1080, 720));
-        setPreferredSize(new java.awt.Dimension(1540, 815));
+        setPreferredSize(new java.awt.Dimension(1366, 768));
 
         bg.setLayout(new java.awt.BorderLayout());
 
         pnl_side.setBackground(new java.awt.Color(21, 25, 28));
-        pnl_side.setPreferredSize(new java.awt.Dimension(480, 720));
+        pnl_side.setPreferredSize(new java.awt.Dimension(320, 720));
         pnl_side.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         sidepnl_top.setBackground(new java.awt.Color(21, 25, 28));
         sidepnl_top.setPreferredSize(new java.awt.Dimension(480, 165));
 
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel23.setText("Europe Bus Employees");
+
         javax.swing.GroupLayout sidepnl_topLayout = new javax.swing.GroupLayout(sidepnl_top);
         sidepnl_top.setLayout(sidepnl_topLayout);
         sidepnl_topLayout.setHorizontalGroup(
             sidepnl_topLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
+            .addGroup(sidepnl_topLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jLabel23)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         sidepnl_topLayout.setVerticalGroup(
             sidepnl_topLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 165, Short.MAX_VALUE)
+            .addGroup(sidepnl_topLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jLabel23)
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
-        pnl_side.add(sidepnl_top, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, -1, -1));
+        pnl_side.add(sidepnl_top, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 320, -1));
 
         btn_Dashboard.setBackground(new java.awt.Color(34, 40, 44));
         btn_Dashboard.setPreferredSize(new java.awt.Dimension(480, 55));
@@ -190,9 +201,9 @@ public class EBE_Home extends javax.swing.JFrame {
             btn_DashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btn_DashboardLayout.createSequentialGroup()
                 .addComponent(leftpnl_dashboard_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                .addComponent(lbl_dashboard_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(206, 206, 206))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addComponent(lbl_dashboard_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(87, 87, 87))
         );
         btn_DashboardLayout.setVerticalGroup(
             btn_DashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,7 +211,7 @@ public class EBE_Home extends javax.swing.JFrame {
             .addComponent(lbl_dashboard_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pnl_side.add(btn_Dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 175, -1, -1));
+        pnl_side.add(btn_Dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 175, 320, -1));
 
         btn_addroutes.setBackground(new java.awt.Color(21, 25, 28));
         btn_addroutes.setPreferredSize(new java.awt.Dimension(480, 55));
@@ -241,9 +252,9 @@ public class EBE_Home extends javax.swing.JFrame {
             btn_addroutesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btn_addroutesLayout.createSequentialGroup()
                 .addComponent(leftpnl_addroutes_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                .addComponent(lbl_manageroutes_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(206, 206, 206))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addComponent(lbl_manageroutes_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57))
         );
         btn_addroutesLayout.setVerticalGroup(
             btn_addroutesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,7 +262,7 @@ public class EBE_Home extends javax.swing.JFrame {
             .addComponent(lbl_manageroutes_btn1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pnl_side.add(btn_addroutes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, -1, -1));
+        pnl_side.add(btn_addroutes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 320, -1));
 
         btn_allroutes.setBackground(new java.awt.Color(21, 25, 28));
         btn_allroutes.setPreferredSize(new java.awt.Dimension(480, 55));
@@ -292,9 +303,9 @@ public class EBE_Home extends javax.swing.JFrame {
             btn_allroutesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btn_allroutesLayout.createSequentialGroup()
                 .addComponent(leftpnl_allroutes_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                .addComponent(lbl_manageroutes_btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(206, 206, 206))
+                .addGap(66, 66, 66)
+                .addComponent(lbl_manageroutes_btn2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(122, Short.MAX_VALUE))
         );
         btn_allroutesLayout.setVerticalGroup(
             btn_allroutesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,7 +313,7 @@ public class EBE_Home extends javax.swing.JFrame {
             .addComponent(lbl_manageroutes_btn2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pnl_side.add(btn_allroutes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, -1, -1));
+        pnl_side.add(btn_allroutes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 320, -1));
 
         btn_editroutes.setBackground(new java.awt.Color(21, 25, 28));
         btn_editroutes.setPreferredSize(new java.awt.Dimension(480, 55));
@@ -343,9 +354,9 @@ public class EBE_Home extends javax.swing.JFrame {
             btn_editroutesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btn_editroutesLayout.createSequentialGroup()
                 .addComponent(leftpnl_manageroutes_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                .addComponent(lbl_manageroutes_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(206, 206, 206))
+                .addGap(65, 65, 65)
+                .addComponent(lbl_manageroutes_btn)
+                .addContainerGap(130, Short.MAX_VALUE))
         );
         btn_editroutesLayout.setVerticalGroup(
             btn_editroutesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,7 +364,7 @@ public class EBE_Home extends javax.swing.JFrame {
             .addComponent(lbl_manageroutes_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pnl_side.add(btn_editroutes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, -1, -1));
+        pnl_side.add(btn_editroutes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, 320, -1));
 
         btn_Logout.setBackground(new java.awt.Color(21, 25, 28));
         btn_Logout.setPreferredSize(new java.awt.Dimension(480, 55));
@@ -394,9 +405,9 @@ public class EBE_Home extends javax.swing.JFrame {
             btn_LogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btn_LogoutLayout.createSequentialGroup()
                 .addComponent(leftpnl_logout_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                .addComponent(lbl_settings_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(206, 206, 206))
+                .addGap(68, 68, 68)
+                .addComponent(lbl_settings_btn)
+                .addContainerGap(165, Short.MAX_VALUE))
         );
         btn_LogoutLayout.setVerticalGroup(
             btn_LogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -404,7 +415,7 @@ public class EBE_Home extends javax.swing.JFrame {
             .addComponent(lbl_settings_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
-        pnl_side.add(btn_Logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, -1, -1));
+        pnl_side.add(btn_Logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 320, -1));
 
         bg.add(pnl_side, java.awt.BorderLayout.WEST);
 
@@ -1280,6 +1291,7 @@ public class EBE_Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;

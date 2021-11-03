@@ -25,7 +25,7 @@ public class DB_Connection {
     public DB_Connection(){   
     try{
         Class.forName("com.mysql.cj.jdbc.Driver"); 
-        conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/coachbookingdb","root","123123kajun123");
+        conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/coachbookingdb","root","");
         
         //stmt = (Statement) conn.createStatement();
          if(conn != null){

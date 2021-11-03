@@ -77,9 +77,10 @@ public class Customer_Home extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1366, 768));
 
         pnl_side.setBackground(new java.awt.Color(21, 25, 28));
-        pnl_side.setPreferredSize(new java.awt.Dimension(480, 720));
+        pnl_side.setPreferredSize(new java.awt.Dimension(320, 720));
         pnl_side.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         sidepnl_top.setBackground(new java.awt.Color(21, 25, 28));
@@ -89,14 +90,14 @@ public class Customer_Home extends javax.swing.JFrame {
         sidepnl_top.setLayout(sidepnl_topLayout);
         sidepnl_topLayout.setHorizontalGroup(
             sidepnl_topLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
+            .addGap(0, 320, Short.MAX_VALUE)
         );
         sidepnl_topLayout.setVerticalGroup(
             sidepnl_topLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 165, Short.MAX_VALUE)
         );
 
-        pnl_side.add(sidepnl_top, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, -1, -1));
+        pnl_side.add(sidepnl_top, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 320, -1));
 
         btn_Dashboard.setBackground(new java.awt.Color(34, 40, 44));
         btn_Dashboard.setPreferredSize(new java.awt.Dimension(480, 55));
@@ -138,9 +139,9 @@ public class Customer_Home extends javax.swing.JFrame {
             btn_DashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btn_DashboardLayout.createSequentialGroup()
                 .addComponent(leftpnl_dashboard_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                .addComponent(lbl_dashboard_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(206, 206, 206))
+                .addGap(29, 29, 29)
+                .addComponent(lbl_dashboard_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         btn_DashboardLayout.setVerticalGroup(
             btn_DashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,7 +149,7 @@ public class Customer_Home extends javax.swing.JFrame {
             .addComponent(lbl_dashboard_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pnl_side.add(btn_Dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 175, -1, -1));
+        pnl_side.add(btn_Dashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 175, 320, -1));
 
         btn_tripbooking.setBackground(new java.awt.Color(21, 25, 28));
         btn_tripbooking.setPreferredSize(new java.awt.Dimension(480, 55));
@@ -189,9 +190,9 @@ public class Customer_Home extends javax.swing.JFrame {
             btn_tripbookingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btn_tripbookingLayout.createSequentialGroup()
                 .addComponent(leftpnl_addroutes_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                .addComponent(lbl_manageroutes_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(206, 206, 206))
+                .addGap(32, 32, 32)
+                .addComponent(lbl_manageroutes_btn1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(87, Short.MAX_VALUE))
         );
         btn_tripbookingLayout.setVerticalGroup(
             btn_tripbookingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,7 +200,7 @@ public class Customer_Home extends javax.swing.JFrame {
             .addComponent(lbl_manageroutes_btn1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pnl_side.add(btn_tripbooking, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, -1, -1));
+        pnl_side.add(btn_tripbooking, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 320, -1));
 
         btn_Logout.setBackground(new java.awt.Color(21, 25, 28));
         btn_Logout.setPreferredSize(new java.awt.Dimension(480, 55));
@@ -240,9 +241,9 @@ public class Customer_Home extends javax.swing.JFrame {
             btn_LogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btn_LogoutLayout.createSequentialGroup()
                 .addComponent(leftpnl_settings_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addGap(31, 31, 31)
                 .addComponent(lbl_settings_btn, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(197, 197, 197))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         btn_LogoutLayout.setVerticalGroup(
             btn_LogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,7 +251,7 @@ public class Customer_Home extends javax.swing.JFrame {
             .addComponent(lbl_settings_btn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 55, Short.MAX_VALUE)
         );
 
-        pnl_side.add(btn_Logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, -1, -1));
+        pnl_side.add(btn_Logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 320, -1));
 
         getContentPane().add(pnl_side, java.awt.BorderLayout.WEST);
 
@@ -394,7 +395,7 @@ public class Customer_Home extends javax.swing.JFrame {
             .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
-        pnl_addroutes.add(btn_filter, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 110, 30));
+        pnl_addroutes.add(btn_filter, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 110, 110, 30));
 
         jTextField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         pnl_addroutes.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 110, 170, -1));
